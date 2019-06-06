@@ -1,0 +1,75 @@
+App-root:
+  Nav:
+    - Brand
+    SingedInLinks:
+      UserMenu:
+        - Logout
+        - Profile
+        - Purcharses
+    SignedOutLinks:
+      - Singing
+      - Login
+  Footer:
+    - About
+    - Contact
+    - Social Media Links
+  Landing:
+    paths:
+      - /
+      - /landing
+    OpenedSales
+    PhotoCarousel
+    ImstagramRecents
+  Singing:
+    paths:
+      - /singing
+    - FacebookSinging
+    - GoogleSinging
+    - InstagramSingin
+  Login:
+    paths:
+      - /login
+    - FacebookLogin
+    - GoogleLogin
+    - IntagramLogin
+  Shopping:
+    paths:
+      - /shop
+    - ProductSelection
+    - PaymentInfo
+    - ShippingInfo
+  Purcharses:
+    - User purcharse list
+  Profile:
+    - User info
+    - Social media accounts
+  Admin:
+    paths:
+      - /admin
+    Dashboard:
+
+    Products:
+      paths:
+        - /admin/products
+      - List products
+      - Add Product
+      - Remove Poduct
+      - Disable Product
+    Users:
+      paths:
+        - /admin/users
+      - List users
+      - Add User
+    OpenSales:
+      paths:
+        - /admin/open-sales
+      - List open sales
+      - Edit open sale
+      - Create open sale
+    Sales:
+      paths:
+        - /admin/sales
+      - List orders
+      - Cretae order
+      
+  
