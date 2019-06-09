@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Avatar, Typography, Container, Box, Button, Paper, Grid, Card, CardHeader, CardMedia, CardContent } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-// import { makeStyles } from '@material-ui/core/styles';
 import { deepOrange } from '@material-ui/core/colors';
+import { ShoppingBasket} from '@material-ui/icons';
+
+import {AppRoutes} from '../../app.routes';
 
 class CurrentOpenShop extends Component {
 
@@ -134,15 +136,16 @@ class CurrentOpenShop extends Component {
 						</Grid>
 						<Grid container spacing={2}>
 							<Grid item xs={12}>
-								<Box className='m-2' textAlign='center'>
+								<Box className='m-4' textAlign='center'>
 									<Typography>
 										Hacé tu pedido ya, ¡antes que se agoten!
 									</Typography>
 								</Box>
 								<Box className='m-2' textAlign='center'>									
-									<Link to='/shop'>
+									<Link to={AppRoutes.shop}>
 										<Button variant="contained" color="primary">
-											Hacer pedido
+											<ShoppingBasket />
+											<span className="ml-2">Hacer pedido</span>
 										</Button>										
 									</Link>
 								</Box>

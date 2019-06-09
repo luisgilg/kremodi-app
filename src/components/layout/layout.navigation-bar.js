@@ -6,7 +6,9 @@ import Typography from '@material-ui/core/Typography';
 // import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import SideMenuDrawer from './SideMenuDrawer';
+import SideMenuDrawer from './layout.side-menu-drawer';
+import { Link } from 'react-router-dom';
+import {AppRoutes} from '../../app.routes';
 
 class NavigationBar extends React.Component {
   constructor(props){
@@ -15,17 +17,12 @@ class NavigationBar extends React.Component {
       open: false
     }
   }
-	useStyles = () => makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-  }));
+  useStyles = () => ({
+    header: {
+      color:'white'
+    }
+  });
+  
 
   toggleDrawer = (open) => {
     this.setState({
@@ -42,14 +39,17 @@ class NavigationBar extends React.Component {
           <Toolbar>
             <IconButton 
               onClick = {()=>this.toggleDrawer(true)} 
-              edge="start" className={classes.menuButton} 
+              edge="start"
               color="inherit" aria-label="Menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Yogurt Kremodi
-            </Typography>
+            <Link to={AppRoutes.landing}>
+              <Typography variant="h6" style= {classes.header} >
+                Yogurt Kremódi
+              </Typography>
+            </Link>
           </Toolbar>
+          
         </AppBar>
         <SideMenuDrawer
           open = {open}

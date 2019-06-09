@@ -16,17 +16,17 @@ class Footer extends React.Component {
 		return (
 			<Container className='mt-4'>
 				<Grid container>
-					<Grid item xs={6}>
+					<Grid item xs={12} sm={4} md={6}>
 						<Box>
 							<Typography gutterBottom variant="body2" component="b">
-								Yogurt Kremodi 2019
+								Yogurt Kremódi 2019
 							</Typography>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Todo los derechos reservados
 							</Typography>
 						</Box>
 					</Grid>
-					<Grid item xs={6}>
+					<Grid item xs={12} sm={8} md={6}>
 						<Box textAlign='right'>
 							
 							<ul>
