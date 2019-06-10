@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Grid, Paper, Box } from '@material-ui/core';
-import { FacebookLoginButton, InstagramLoginButton, GoogleLoginButton } from "react-social-login-buttons";
+import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 
 
 class SocialMedia extends Component {
@@ -21,13 +21,6 @@ class SocialMedia extends Component {
 								<span>Facebook</span>
 							</FacebookLoginButton>
 						</Grid>
-
-						<Grid item xs={6}>
-							<InstagramLoginButton onClick={()=>this.props.instagram()}>
-								<span>Instagram</span>
-							</InstagramLoginButton>
-						</Grid>
-
 						<Grid item xs={6}>
 							<GoogleLoginButton onClick={()=>this.props.google()}>
 								<span>Google</span>

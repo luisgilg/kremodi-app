@@ -12,10 +12,6 @@ class ScreenSingin extends Component {
 		this.props.googleLogin();
 	}
 
-	instagramLogin = () => {
-		this.props.googleLogin();
-	}
-
 	facebookLogin = () => {
 		this.props.facebookLogin();
 	}
@@ -30,7 +26,6 @@ class ScreenSingin extends Component {
 			<SocialMedia
 				header= {'¿Con que red social deseas iniciar sesión?'}
 				facebook = {this.facebookLogin}
-				instagram = {this.instagramLogin}
 				google = {this.googleLogin}
 			/>
 		)
