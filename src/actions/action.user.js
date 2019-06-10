@@ -1,5 +1,5 @@
 import {SET_USER_TYPES, GOOLE_SIGNIN_TYPES, FETCH_USER_TYPES, SIGNOUT_TYPES, FACEBOOK_SIGNIN_TYPES} from './types';
-import {authRef, googleProvider, usersRef, facebookProvider} from './refs';
+import {authRef, googleProvider, usersRef, facebookProvider, adminsRef} from './refs';
 import _ from 'lodash';
 
 export const setGoogleUser = ({ 
@@ -107,8 +107,18 @@ export const fecthUser = () => dispatch => {
 	dispatch(FETCH_USER_TYPES.request());
 		authRef.onAuthStateChanged(user => {
 		// unsubscribe();
+	
     if (user) {
-      dispatch(FETCH_USER_TYPES.success(user.toJSON()));
+			adminsRef.on("value",snap =>{
+				if (snap){
+					var admins = snap.val();
+					const data = {
+						...user.toJSON(),
+						isAdmin: admins.indexOf(user.uid) !== -1
+					}
+					dispatch(FETCH_USER_TYPES.success(data));
+				}
+			})			
     } else {
 			dispatch(FETCH_USER_TYPES.success(null));
     }

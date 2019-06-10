@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Avatar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Inbox , Mail, ExitToApp, AccountCircle, History, Home, ShoppingBasket} from '@material-ui/icons';
+import { Inbox , Mail, ExitToApp, AccountCircle, History, Home, ShoppingBasket, MonetizationOn, CalendarToday, List as ProductList, Info } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import {AppRoutes} from '../../app.routes';
 // import {singOut} from '../../api/user.service';
 import { fecthUser, singout } from '../../actions/action.user';
-import { isSignedin } from '../../actions/utils'
+import { isSignedin, isAdmin } from '../../actions/utils'
 import { connect } from 'react-redux';
 
 class SideMenuDrawer extends Component {
@@ -74,14 +74,33 @@ class SideMenuDrawer extends Component {
           </ListItem>
           <Divider />
         </List>
-      )}			
-      <List>
-        {['Acerca de nosotros', 'Contacto'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <Inbox /> : <Mail />}</ListItemIcon>
-            <ListItemText primary={text} />
+      )}
+      {isAdmin({user}) && (
+        <List>
+          <ListItem button component={Link} to={AppRoutes.products}>
+              <ListItemIcon><ProductList /></ListItemIcon>
+              <ListItemText primary='Productos' />
           </ListItem>
-        ))}
+          <ListItem button component={Link} to={AppRoutes.orders}>
+              <ListItemIcon><MonetizationOn /></ListItemIcon>
+              <ListItemText primary='Pedidos' />
+          </ListItem>
+          <ListItem button component={Link} to={AppRoutes.openShop}>
+              <ListItemIcon><CalendarToday /></ListItemIcon>
+              <ListItemText primary='Apertura de pedidos' />
+          </ListItem>
+          <Divider/>
+        </List>
+      )}
+      <List>
+        <ListItem button component={Link} to={AppRoutes.about}>
+            <ListItemIcon><Info /></ListItemIcon>
+            <ListItemText primary='Acerca de nosotros' />
+        </ListItem>
+        <ListItem button component={Link} to={AppRoutes.contact}>
+            <ListItemIcon><Mail /></ListItemIcon>
+            <ListItemText primary='Contacto' />
+        </ListItem>
       </List>
     </div>
   );
