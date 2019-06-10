@@ -5,7 +5,6 @@ import 'firebase/database';
 
 firebase.initializeApp(firebaseConfig);
 
-// export const firebase = _firebase;
 const databaseRef = firebase.database().ref();
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();

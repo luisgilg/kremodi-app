@@ -1,3 +1,4 @@
+import {config} from 'dotenv';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
@@ -10,6 +11,8 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reducers from "./reducers";
 import { composeWithDevTools } from 'redux-devtools-extension';
+config();
+
 
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(reduxThunk),
