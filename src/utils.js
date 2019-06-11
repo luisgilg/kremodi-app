@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { AppRoutes } from './app.routes';
+import moment from 'moment';
 
 export const normalizeUser = ({
 	uid, displayName, email, photoURL, phoneNumber, providerId, createdAt, socialMedia, lastLoginAt,
@@ -25,6 +26,16 @@ export const createProduct = () => ({
 	slug: '',
 	dependsOn: ''
 });
+
+export const createOpenShop = () => {
+	return {
+		title:'Productos disponibles desde',
+		subtitle: '',
+		products: [],
+		startDate: moment().format('YYYY-MM-DD'),
+		endDate : moment().add(5,'days').format('YYYY-MM-DD'),
+	};
+};
 
 export function onlyAdmin(WrappedComponent) {
 	const mapStateToProps = ({user})=>({

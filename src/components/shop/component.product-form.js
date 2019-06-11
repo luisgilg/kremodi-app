@@ -10,10 +10,6 @@ class ProductFrom extends Component {
 		};
 	}
 
-	success = () => {
-
-	}
-
 	renderForm = ({
 		product: {
 			id, title, subtitle, image, description, price, slug, dependsOn
@@ -212,7 +208,7 @@ class ProductFrom extends Component {
 				flex: 1,
 			},
 			saveButton: 'ml-2 mr-2',
-			field: '',
+			field: 'mr-4',
 			container: 'p-4'
 		}
 	);

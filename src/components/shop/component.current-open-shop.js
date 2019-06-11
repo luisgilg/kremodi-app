@@ -4,63 +4,23 @@ import { ShoppingBasket } from '@material-ui/icons';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoutes } from '../../app.routes';
-import ProductCard from './component.product-card';
+import ManageOpenShopCard from './component.manage-open-shop-card';
 
 
 class CurrentOpenShop extends Component {
 
-	renderProductCard = ({product}) => (
-		<ProductCard product={product} />
-	)
-
-	renderProductGridItem = ({ product, ...args }) => (
-		<Grid key={product.id} item xs={12} sm={6} md={3} >
-			{this.renderProductCard({ product, ...args })}
-		</Grid>
-	)
-
-	renderOpenSaleHeader = ({ openSale: {
-		title,
-		startDate,
-		endDate,
-		subtitle
-	}, classes }) => (
-			<Box textAlign="center" className={classes.header}>
-				<Typography variant="h6" component="span">
-					{title}
-				</Typography>
-				<Typography className={classes.headerDate} variant="h5" component="span">
-					{startDate}
-				</Typography>
-				<Typography variant="h6" component="span">
-					hasta
-				</Typography>
-				<Typography className={classes.headerDate} variant="h5" component="span">
-					{endDate}
-				</Typography>
-				<Typography variant="body2" color="textSecondary" component="p">
-					{subtitle}
-				</Typography>
-			</Box>
-		);
-
+	
 	render() {
-		const classes = this.useStyles();
 		const openSale = this.getMockedOpenSale();
 		const products = this.getMockedProducts();
-
+		const openShop = {...openSale, products};
 		return (
 			<div>
 				<Container>
-					<Paper>
-						<Grid container spacing={2}>
-							<Grid item xs={12}>
-								{this.renderOpenSaleHeader({openSale, classes})}
-							</Grid>
-						</Grid>
-						<Grid className='pl-2 pr-2' container spacing={2}>
-							{products && products.map(product => this.renderProductGridItem({ product, classes }))}
-						</Grid>
+					{/* <Paper> */}
+						<ManageOpenShopCard
+							openShop = {openShop}
+						/>
 						<Grid container spacing={2}>
 							<Grid item xs={12}>
 								<Box className='m-4' textAlign='center'>
@@ -78,7 +38,7 @@ class CurrentOpenShop extends Component {
 								</Box>
 							</Grid>
 						</Grid>
-					</Paper>
+					{/* </Paper> */}
 				</Container>
 			</div>
 		)
@@ -103,9 +63,7 @@ class CurrentOpenShop extends Component {
 	);
 
 	getMockedOpenSale = () => ({
-		title: 'Productos disponibles desde',
-		startDate: 'Abr 20, 2019',
-		endDate: 'Abr 25, 2019',
+		title: 'Productos disponibles',
 		subtitle: 'Especial primavera'
 	});
 	getMockedProducts = () => ([

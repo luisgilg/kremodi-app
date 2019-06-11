@@ -14,3 +14,5 @@ export const usersRef = databaseRef.child('users');
 export const authRef = firebase.auth();
 export const adminsRef = databaseRef.child('admins');
 export const productsRef = databaseRef.child('products');
+export const openShopRef = databaseRef.child('open-shop');
+

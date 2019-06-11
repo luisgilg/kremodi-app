@@ -2,7 +2,6 @@ import { Box, Container, Fab, Grid, Paper } from '@material-ui/core';
 import { Add as AddIcon } from '@material-ui/icons';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Alert } from 'reactstrap';
 import { fetchProducts, pushProducts, updateProducts } from '../actions/action.products';
 import ProductCard from '../components/shop/component.product-card';
 import ProductForm from '../components/shop/component.product-form';
@@ -44,8 +43,6 @@ class ScreenProducts extends Component {
 		this.toggleProductForm();
 	}
 
-	update= ()=>{}
-
 	renderProductCard = ({product}) => (
 		<ProductCard 
 			product={product}
@@ -70,13 +67,6 @@ class ScreenProducts extends Component {
 					<Grid container>
 						<Grid className={classes.productRow} container spacing={2}>
 								{products && products.map(product => this.renderProductGridItem({ product, classes }))}
-								{!products && (
-									<Grid item xs={12} className={classes.empty}>
-											<Alert color="danger" className={classes.empty}>
-												No hay productos registrados
-											</Alert>
-									</Grid>								
-								)}
 						</Grid>
 						<Grid item xs={12}>
 							<Box textAlign='right'>
