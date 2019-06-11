@@ -51,6 +51,8 @@ export const UPDATE_PRODUCT_TYPES = createType('UPDATE_PRODUCT');
 export const FETCH_OPEN_SHOP_TYPES = createType('FETCH_OPEN_SHOP');
 export const PUSH_OPEN_SHOP_TYPES = createType('PUSH_OPEN_SHOP');
 export const UPDATE_OPEN_SHOP_TYPES = createType('UPDATE_OPEN_SHOP');
+export const DELETE_OPEN_SHOP_TYPES = createType('DELETE_OPEN_SHOP');
+
 
 
 

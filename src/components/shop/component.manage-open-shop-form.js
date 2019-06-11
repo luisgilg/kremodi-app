@@ -53,7 +53,7 @@ class ManageOpenShopForm extends Component {
 
 	renderForm = ({
 		openShop: {
-			id, title, subtitle, products, startDate, endDate
+			id, title, subtitle, products=[], startDate, endDate
 		}, classes, products: productsSource = []
 	}) => {
 

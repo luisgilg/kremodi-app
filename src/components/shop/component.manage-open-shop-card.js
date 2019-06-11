@@ -1,6 +1,6 @@
-import { Container, Card, CardHeader, CardContent, CardActions, Button, Table, TableHead, TableCell, TableBody, TableRow, Grid,Switch, Typography  } from '@material-ui/core';
+import { Card, CardHeader, CardContent, CardActions, Button, Table, TableHead, TableCell, TableBody, TableRow, Grid,Typography  } from '@material-ui/core';
 import React, { Component } from 'react';
-import { Edit } from '@material-ui/icons';
+import { Edit, Delete } from '@material-ui/icons';
 import moment from 'moment';
 import ProductCard from './component.product-card';
 
@@ -32,7 +32,9 @@ class ManageOpenShopCard extends Component {
 			},
 			openShop,
 			allowEdit=false,
-			editAction= ()=>{}
+			editAction= ()=>{},
+			deleteAction= ()=>{}
+
 		} = this.props;
 		const fechaDesde = moment(startDate, 'YYYY-MM-DD').format('MMM DD, YYYY');
 		const fechaHasta = moment(endDate, 'YYYY-MM-DD').format('MMM DD, YYYY');
@@ -111,6 +113,11 @@ class ManageOpenShopCard extends Component {
 				</CardContent>
 				{allowEdit && (
 					<CardActions>
+						<Button color="primary" onClick={()=>deleteAction({openShop})}>
+							<Delete />
+							<span className={classes.editButton}>Eliminar</span>
+						</Button>
+
 						<Button color="primary" onClick={()=>editAction({openShop})}>
 							<Edit />
 							<span className={classes.editButton}>Editar</span>

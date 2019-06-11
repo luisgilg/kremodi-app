@@ -1,4 +1,4 @@
-import {FETCH_OPEN_SHOP_TYPES, PUSH_OPEN_SHOP_TYPES, UPDATE_OPEN_SHOP_TYPES } from '../actions/types';
+import {FETCH_OPEN_SHOP_TYPES, PUSH_OPEN_SHOP_TYPES, UPDATE_OPEN_SHOP_TYPES, DELETE_OPEN_SHOP_TYPES } from '../actions/types';
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -11,6 +11,8 @@ export default (state = {}, action) => {
 			return {
 				openShops: action.payload
 			}
+		case DELETE_OPEN_SHOP_TYPES.REQUEST:
+		case DELETE_OPEN_SHOP_TYPES.SUCCESS:		
 		case PUSH_OPEN_SHOP_TYPES.REQUEST:
 		case PUSH_OPEN_SHOP_TYPES.SUCCESS:	
 		case UPDATE_OPEN_SHOP_TYPES.REQUEST:

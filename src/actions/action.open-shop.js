@@ -1,5 +1,5 @@
 import { openShopRef } from './refs';
-import { FETCH_OPEN_SHOP_TYPES, PUSH_OPEN_SHOP_TYPES, UPDATE_OPEN_SHOP_TYPES } from './types';
+import { FETCH_OPEN_SHOP_TYPES, PUSH_OPEN_SHOP_TYPES, UPDATE_OPEN_SHOP_TYPES, DELETE_OPEN_SHOP_TYPES } from './types';
 
 
 export const fetchOpenShop = () => dispatch => {
@@ -35,5 +35,15 @@ export const updateOpenShop = ({openShop:{id, ...data}, openShop}) => async disp
 		dispatch(UPDATE_OPEN_SHOP_TYPES.success({openShop}));
 	} catch (error) {
 		dispatch(UPDATE_OPEN_SHOP_TYPES.failure(error));		
+	}
+}
+
+export const deleteOpenShop = ({openShop:{id}, openShop}) => async dispatch => {
+	try {
+		dispatch(DELETE_OPEN_SHOP_TYPES.request({openShop}));
+		await openShopRef.child(id).remove();
+		dispatch(DELETE_OPEN_SHOP_TYPES.success({openShop}));
+	} catch (error) {
+		dispatch(DELETE_OPEN_SHOP_TYPES.failure(error));		
 	}
 }

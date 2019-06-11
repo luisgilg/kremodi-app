@@ -52,7 +52,7 @@ class ScreenProducts extends Component {
 	)
 
 	renderProductGridItem = ({ product, ...args }) => (
-		<Grid key={product.id} item xs={12} sm={3} md={3}>
+		<Grid key={product.id} item xs={12} sm={4} md={4}>
 			{this.renderProductCard({ product, ...args })}
 		</Grid>
 	)

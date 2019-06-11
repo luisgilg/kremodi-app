@@ -29,7 +29,7 @@ export const createProduct = () => ({
 
 export const createOpenShop = () => {
 	return {
-		title:'Productos disponibles desde',
+		title:'Estamos recibiendo pedidos...',
 		subtitle: '',
 		products: [],
 		startDate: moment().format('YYYY-MM-DD'),
