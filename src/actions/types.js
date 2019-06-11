@@ -44,5 +44,14 @@ export const SIGNOUT_TYPES = createType('SIGNOUT');
 
 export const FACEBOOK_SIGNIN_TYPES = createType('FACEBOOK_SIGNIN');
 
+export const FETCH_PRODUCTS_TYPES = createType('FETCH_PRODUCTS');
+
+export const PUSH_PRODUCT_TYPES = createType('PUSH_PRODUCT');
+
+export const UPDATE_PRODUCT_TYPES = createType('UPDATE_PRODUCT');
+
+
+
+
 
 

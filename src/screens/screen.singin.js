@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { googleLogin, facebookLogin  } from '../actions/action.user';
-import { isSignedin } from '../actions/utils'
+import { isSignedin } from '../utils'
 import SocialMedia from '../components/user/component.social-media';
 import {AppRoutes} from '../app.routes';
 

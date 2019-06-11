@@ -2,12 +2,176 @@ import React, { Component } from 'react';
 import { InputAdornment, Paper, Container, Dialog, DialogContent, Button, AppBar, Toolbar, IconButton, Typography, TextField } from '@material-ui/core';
 import { Close as CloseIcon, Save } from '@material-ui/icons';
 
-
 class ProductFrom extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			product: null
+		};
+	}
+
+	success = () => {
+
+	}
+
+	renderForm = ({
+		product: {
+			id, title, subtitle, image, description, price, slug, dependsOn
+		}, classes
+	}) => {
+
+		return (
+			<form>
+				<TextField
+					id="id"
+					label="Id"
+					type="text"
+					className={classes.field}
+					InputProps={{
+						readOnly: true,
+					}}
+					variant="filled"
+					fullWidth
+					margin="normal"
+					value = {id}
+				/>
+				<TextField
+					autoFocus
+					id="title"
+					label="Nombre"
+					type="text"
+					className={classes.field}
+					margin="normal"
+					defaultValue={title}
+					onChange={({ target }) => this.setState(prev =>({
+						product: {
+							...prev.product,
+							title: target.value
+						}
+					}))}
+				/>
+				<TextField
+					id="subtitle"
+					label="Subtitulo"
+					type="text"
+					className={classes.field}
+					margin="normal"
+					defaultValue={subtitle}
+					onChange={({ target }) => this.setState(prev =>({
+						product: {
+							...prev.product,
+							subtitle: target.value
+						}
+					}))}
+				/>
+				<TextField
+					id="price"
+					label="Precio"
+					type="number"
+					className={classes.field}
+					margin="normal"
+					InputProps={{
+						startAdornment: <InputAdornment position="start">$</InputAdornment>,
+					}}
+					
+					defaultValue={price}
+					onChange={({ target }) => this.setState(prev =>({
+						product: {
+							...prev.product,
+							price: target.value
+						}
+					}))}
+				/>
+				<TextField
+					margin="normal"
+					id="slug"
+					label="Slug"
+					type="text"
+					className={classes.field}
+					// value={slug}
+					defaultValue={slug}
+					onChange={({ target }) => this.setState(prev =>({
+						product: {
+							...prev.product,
+							slug: target.value
+						}
+					}))}
+				/>
+				<TextField
+					margin="normal"
+					id="dependsOn"
+					label="Depende de"
+					type="text"
+					className={classes.field}
+
+					defaultValue={dependsOn}
+					onChange={({ target }) => this.setState(prev =>({
+						product: {
+							...prev.product,
+							dependsOn: target.value
+						}
+					}))}
+				/>
+				<TextField
+					id="image"
+					label="Imagen"
+					type="text"
+					className={classes.field}
+					fullWidth
+					margin="normal"
+					
+					defaultValue={image}
+					onChange={({ target }) => this.setState(prev =>({
+						product: {
+							...prev.product,
+							image: target.value
+						}
+					}))}
+					
+				/>
+				<TextField
+					id="description"
+					label="Descripcion"
+					rows="2"
+					fullWidth
+					multiline
+					className={classes.field}
+					variant="filled"
+					margin="normal"
+					defaultValue={description}
+					onChange={({ target }) => this.setState(prev =>({
+						product: {
+							...prev.product,
+							description: target.value
+						}
+					}))}
+				/>
+			</form>
+		)
+	}
+
+	onAction = ()=> {
+		this.props.action(this.props, {...this.state});
+		this.setState({
+			product:null
+		})
+	}
+
+	onToogle = ()=> {
+		this.props.toggle(this.props, {...this.state});
+		this.setState({
+			product:null
+		})
+	}
 
 	render() {
+		const { open, product} = this.props;
+		if (!product){
+			return (<div />);
+		}
+
 		const classes = this.useStyles();
-		const { open, toggle } = this.props;
+		
 		return (
 			<Dialog
 				fullScreen
@@ -15,92 +179,22 @@ class ProductFrom extends Component {
 			>
 				<AppBar style={classes.appBar}>
 					<Toolbar>
-						<IconButton edge="start" color="inherit" onClick={toggle} aria-label="Close">
+						<IconButton edge="start" color="inherit" onClick={this.onToogle} aria-label="Close">
 							<CloseIcon />
 						</IconButton>
 						<Typography variant="h6" style={classes.title}>
 							Agregar/Editar Producto
             </Typography>
-						<Button color="inherit" onClick={toggle}>
+						<Button color="inherit" onClick={this.onAction}>
 							<Save />
-							<span className={classes.saveButton} >Save</span>
+							<span className={classes.saveButton}>Guardar</span>
 						</Button>
 					</Toolbar>
 				</AppBar>
 				<DialogContent>
 					<Container>
 						<Paper className={classes.container}>
-							<form>
-								<TextField
-									id="id"
-									label="Id"
-									type="text"
-									className={classes.field}
-									InputProps={{
-										readOnly: true,
-									}}
-									variant="filled"
-									fullWidth
-									margin="normal"
-								/>
-								<TextField
-									autoFocus
-									id="title"
-									label="Nombre"
-									type="text"
-									className={classes.field}
-									margin="normal"
-								/>
-								<TextField
-									id="subtitle"
-									label="Subtitulo"
-									type="text"
-									className={classes.field}
-									margin="normal"
-								/>
-								<TextField
-									id="price"
-									label="Precio"
-									type="number"
-									className={classes.field}
-									margin="normal"
-									InputProps={{
-										startAdornment: <InputAdornment position="start">$</InputAdornment>,
-									}}
-								/>
-								<TextField
-									margin="normal"
-									id="slug"
-									label="Slug"
-									type="text"
-									className={classes.field}
-								/>
-								<TextField
-									margin="normal"
-									id="dependsOn"
-									label="Depende de"
-									type="text"
-									className={classes.field}									
-								/>
-								<TextField
-									id="image"
-									label="Imagen"
-									type="text"
-									className={classes.field}
-									fullWidth
-									margin="normal"
-								/>
-								<TextField
-									id="description"
-									label="Descripcion"
-									rows="2"
-									fullWidth
-									multiline
-									className={classes.field}
-									variant="filled"
-									margin="normal"
-								/>
-							</form>
+							{this.renderForm({classes, product})}
 						</Paper>
 					</Container>
 				</DialogContent>

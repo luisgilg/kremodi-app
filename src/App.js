@@ -3,6 +3,8 @@ import ScreenLandingPage from './screens/screen.landing';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavigationBar from './components/layout/layout.navigation-bar'
 import Footer from './components/layout/layout.footer';
+import Snackbar from './components/layout/layout.snack';
+
 // import ScreenSingup from './screens/screen.singup';
 import ScreenSingin from './screens/screen.singin';
 import ScreenShop from './screens/screen.shop';
@@ -25,6 +27,7 @@ function App() {
 
         </Switch>
         <Footer />
+        <Snackbar />
       </BrowserRouter>
     // </FirebaseInit>
   );

@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import { Avatar, Typography, Box, Grid, Card, CardHeader, CardMedia, CardContent } from '@material-ui/core';
+import { Avatar, Typography, Box, Grid, Card, CardHeader, CardMedia, CardContent, CardActions, Button } from '@material-ui/core';
 import { deepOrange } from '@material-ui/core/colors';
+import { Edit } from '@material-ui/icons';
+
 
 class ProductCard extends Component {
 
 	render(){
 		const classes = this.useStyles();
 
-		const { product: {
-			id,
-			title,
-			subtitle,
-			image,
-			available,
-			total,
-			description,
-			avatar,
-			avatarTitle,
-			price
-			}
+		const { 
+			product: {
+				id,
+				title,
+				subtitle,
+				image,
+				available,
+				total,
+				description,
+				avatar,
+				avatarTitle,
+				price
+			},
+			product,
+			allowEdit=false,
+			editAction= ()=>{}
 		} = this.props;
+
+
 
 		return (
 			<Card key={id}>
@@ -61,6 +69,14 @@ class ProductCard extends Component {
 						)}					
 					</Grid>
 				</CardContent>
+				{allowEdit && (
+					<CardActions>
+						<Button color="primary" onClick={()=>editAction({product})}>
+							<Edit />
+							<span className={classes.editButton}>Editar</span>
+						</Button>
+					</CardActions>
+				)}
 			</Card>
 		);
 	}
@@ -78,6 +94,8 @@ class ProductCard extends Component {
 				color: '#fff',
 				backgroundColor: deepOrange[500],
 			},
+			editButton: 'ml-2 mr-2',
+
 		}
 	);
 

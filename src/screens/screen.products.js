@@ -2,39 +2,73 @@ import React, { Component } from 'react';
 import { Container, Paper, Grid, Fab, Box } from '@material-ui/core';
 import ProductCard from '../components/shop/component.product-card';
 import ProductForm from '../components/shop/component.product-form';
-
+import { createProduct, onlyAdmin } from '../utils';
 import { Add as AddIcon} from '@material-ui/icons';
 import { Alert } from 'reactstrap'
+import {fetchProducts, pushProducts, updateProducts} from '../actions/action.products';
+import { connect } from 'react-redux';
 
 class ScreenProducts extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			open: false
+			open: false,
+			product: null,
+			action: ()=>{}
 		};
 	}
-	renderProductCard = ({product}) => (
-		<ProductCard product={product} />
-	)
-
-	renderProductGridItem = ({ product, ...args }) => (
-		<Grid key={product.id} item xs={12} sm={3} md={3} >
-			{this.renderProductCard({ product, ...args })}
-		</Grid>
-	)
 
 	toggleProductForm = ()=> this.setState(({open}) => ({open: !open}))
 
+	addProductForm = ()=> this.setState(({open}) => ({
+		open: !open,
+		product: createProduct(),
+		action: this.save
+	}))
+
+	editProductForm = ({product})=> this.setState(({open}) => ({
+		open: !open,
+		product,
+		action: this.edit
+	}))
+
+	save= ({product: originalProduct}, {product: newProduct})=>{
+		const product = {...originalProduct, ...newProduct};
+		this.props.pushProducts({product});
+		this.toggleProductForm();
+	}
+
+	edit= ({product: {id}}, {product: newProduct})=>{
+		const product = {id, ...newProduct};
+		this.props.updateProducts({product});
+		this.toggleProductForm();
+	}
+
+	update= ()=>{}
+
+	renderProductCard = ({product}) => (
+		<ProductCard 
+			product={product}
+			allowEdit={true}
+			editAction={this.editProductForm}
+		/>
+	)
+
+	renderProductGridItem = ({ product, ...args }) => (
+		<Grid key={product.id} item xs={12} sm={3} md={3}>
+			{this.renderProductCard({ product, ...args })}
+		</Grid>
+	)
 	render(){
 		const classes = this.useStyles();
 		const {products} = this.props;
-		const {open} = this.state;
+		const {open, action, product} = this.state;
 
 		return (
 			<Container>
 				<Paper className={classes.container}>
 					<Grid container>
-						<Grid className={classes.productRow} container>
+						<Grid className={classes.productRow} container spacing={2}>
 								{products && products.map(product => this.renderProductGridItem({ product, classes }))}
 								{!products && (
 									<Grid item xs={12} className={classes.empty}>
@@ -46,7 +80,7 @@ class ScreenProducts extends Component {
 						</Grid>
 						<Grid item xs={12}>
 							<Box textAlign='right'>
-								<Fab className={classes.button} onClick= {this.toggleProductForm} color="primary" aria-label="Add">
+								<Fab className={classes.button} onClick= {this.addProductForm} color="primary" aria-label="Add">
 									<AddIcon />
 								</Fab>
 							</Box>
@@ -56,6 +90,8 @@ class ScreenProducts extends Component {
 				<ProductForm
 					open={open}
 					toggle={this.toggleProductForm}
+					product={product}
+				  action={action}
 				/>	
 			</Container>
 		)
@@ -71,6 +107,21 @@ class ScreenProducts extends Component {
 			container: 'p-4'
 		}
 	);
+
+	componentDidMount(){
+		this.props.fetchProducts();
+	}
 }
 
-export default ScreenProducts;
+
+const mapStateToProps = ({productsReducer:{products}})=>({
+  products
+})
+
+const mapDispatchToProps = (dispatch)=>({
+	fetchProducts: () => dispatch(fetchProducts()),
+	pushProducts: (...args) => dispatch(pushProducts(...args)),
+	updateProducts: (...args) => dispatch(updateProducts(...args))
+})
+
+export default onlyAdmin(connect(mapStateToProps, mapDispatchToProps)(ScreenProducts));

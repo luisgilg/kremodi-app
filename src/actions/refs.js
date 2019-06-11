@@ -13,3 +13,4 @@ export const facebookProvider = new firebase.auth.FacebookAuthProvider();
 export const usersRef = databaseRef.child('users');
 export const authRef = firebase.auth();
 export const adminsRef = databaseRef.child('admins');
+export const productsRef = databaseRef.child('products');

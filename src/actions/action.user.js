@@ -29,6 +29,7 @@ export const setGoogleUser = ({
 			});
 		}
 		dispatch(SET_USER_TYPES.success(user));
+		dispatch(fecthUser());
 	} catch (error) {
 		dispatch(SET_USER_TYPES.failure(error));
 	}	
@@ -61,6 +62,8 @@ export const setFacebookUser = ({
 			});
 		}
 		dispatch(SET_USER_TYPES.success(user));
+		dispatch(fecthUser());
+
 	} catch (error) {
 		dispatch(SET_USER_TYPES.failure(error));
 	}	
