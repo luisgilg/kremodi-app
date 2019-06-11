@@ -103,7 +103,7 @@ class ScreenOpenShop extends Component {
 		{
 			headerDate: 'm-2',
 			header: 'm-4',
-			productRow:'pl-2 pr-2',
+			productRow:'',
 			empty: 'm-8 p-8',
 			button: '',
 			container: 'p-4'

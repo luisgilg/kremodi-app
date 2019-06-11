@@ -37,7 +37,7 @@ class ManageOpenShopCard extends Component {
 		const fechaDesde = moment(startDate, 'YYYY-MM-DD').format('MMM DD, YYYY');
 		const fechaHasta = moment(endDate, 'YYYY-MM-DD').format('MMM DD, YYYY');
 		return (
-		<Container>
+		// <Container>
 			<Card>
 				<CardHeader
 					title={title}
@@ -45,7 +45,7 @@ class ManageOpenShopCard extends Component {
 				/>
 				<CardContent>
 					<Grid container spacing={2}>
-						<Grid item xs={4}>							
+						<Grid item xs={6}>							
 							<Typography variant="body2" color="textSecondary" component="p">
 								Inicia
 							</Typography>
@@ -53,7 +53,7 @@ class ManageOpenShopCard extends Component {
 								{fechaDesde}
 							</Typography>
 						</Grid>
-						<Grid item xs={4}>							
+						<Grid item xs={6}>							
 							<Typography variant="body2" color="textSecondary" component="p">
 								Termina
 							</Typography>
@@ -61,8 +61,8 @@ class ManageOpenShopCard extends Component {
 								{fechaHasta}
 							</Typography>
 						</Grid>
-						<Grid item xs={4}>
-							{allowEdit && (
+						{/* <Grid item xs={4}> */}
+							{/* {allowEdit && (
 								<Switch
 									checked={this.state.isPreview}
 									value= 'isPreview'
@@ -71,8 +71,8 @@ class ManageOpenShopCard extends Component {
 									})}
 									inputProps={{ 'aria-label': 'secondary checkbox' }}
 								/>
-							)}
-						</Grid>
+							)} */}
+						{/* </Grid> */}
 					</Grid>
 					{(allowEdit && !this.state.isPreview ) && (
 						<Table>
@@ -119,7 +119,7 @@ class ManageOpenShopCard extends Component {
 				)}
 			</Card>
 			
-		</Container>
+		// </Container>
 		)
 	}
 
