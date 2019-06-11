@@ -1,7 +1,6 @@
+import { Box, Container, Grid, Typography } from '@material-ui/core';
 import React from 'react';
-import { Box, Typography, Grid, Container } from '@material-ui/core';
 import { SocialIcon } from 'react-social-icons';
-// import { makeStyles } from '@material-ui/core/styles';
 
 class Footer extends React.Component {
 	useStyles = () => (

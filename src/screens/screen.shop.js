@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
+import React, { Component } from 'react';
 
 class ScreenShop extends Component {
 

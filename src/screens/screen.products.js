@@ -1,12 +1,12 @@
+import { Box, Container, Fab, Grid, Paper } from '@material-ui/core';
+import { Add as AddIcon } from '@material-ui/icons';
 import React, { Component } from 'react';
-import { Container, Paper, Grid, Fab, Box } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { Alert } from 'reactstrap';
+import { fetchProducts, pushProducts, updateProducts } from '../actions/action.products';
 import ProductCard from '../components/shop/component.product-card';
 import ProductForm from '../components/shop/component.product-form';
 import { createProduct, onlyAdmin } from '../utils';
-import { Add as AddIcon} from '@material-ui/icons';
-import { Alert } from 'reactstrap'
-import {fetchProducts, pushProducts, updateProducts} from '../actions/action.products';
-import { connect } from 'react-redux';
 
 class ScreenProducts extends Component {
 	constructor(props){

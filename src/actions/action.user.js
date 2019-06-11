@@ -1,6 +1,6 @@
-import {SET_USER_TYPES, GOOLE_SIGNIN_TYPES, FETCH_USER_TYPES, SIGNOUT_TYPES, FACEBOOK_SIGNIN_TYPES} from './types';
-import {authRef, googleProvider, usersRef, facebookProvider, adminsRef} from './refs';
 import _ from 'lodash';
+import { adminsRef, authRef, facebookProvider, googleProvider, usersRef } from './refs';
+import { FACEBOOK_SIGNIN_TYPES, FETCH_USER_TYPES, GOOLE_SIGNIN_TYPES, SET_USER_TYPES, SIGNOUT_TYPES } from './types';
 
 export const setGoogleUser = ({ 
 	user: { 

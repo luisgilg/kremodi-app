@@ -1,35 +1,33 @@
 import React from 'react';
-import ScreenLandingPage from './screens/screen.landing';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import NavigationBar from './components/layout/layout.navigation-bar'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { AppRoutes } from './app.routes';
 import Footer from './components/layout/layout.footer';
+import NavigationBar from './components/layout/layout.navigation-bar';
 import Snackbar from './components/layout/layout.snack';
-
-// import ScreenSingup from './screens/screen.singup';
-import ScreenSingin from './screens/screen.singin';
-import ScreenShop from './screens/screen.shop';
+import ScreenLandingPage from './screens/screen.landing';
+import ScreenOpenShop from './screens/screen.open-shop';
 import ScreenProducts from './screens/screen.products';
+import ScreenShop from './screens/screen.shop';
+import ScreenSingin from './screens/screen.singin';
 
-// import FirebaseInit from './components/system/component.firebase-init';
 
-import {AppRoutes} from './app.routes';
+
+
 function App() {
   return (
-    // <FirebaseInit>
       <BrowserRouter>
         <NavigationBar />
         <Switch>
           <Route path={AppRoutes.landing} exact component={ScreenLandingPage} />
-          {/* <Route path={AppRoutes.signUp} component={ScreenSingup} /> */}
           <Route path={AppRoutes.signIn} component={ScreenSingin} />
           <Route path={AppRoutes.shop} component={ScreenShop} />
           <Route path={AppRoutes.products} component={ScreenProducts} />
+          <Route path={AppRoutes.openShop} component={ScreenOpenShop} />
 
         </Switch>
         <Footer />
         <Snackbar />
       </BrowserRouter>
-    // </FirebaseInit>
   );
 }
 

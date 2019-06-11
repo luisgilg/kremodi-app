@@ -1,14 +1,12 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-// import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import SideMenuDrawer from './layout.side-menu-drawer';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import {AppRoutes} from '../../app.routes';
+import { AppRoutes } from '../../app.routes';
+import SideMenuDrawer from './layout.side-menu-drawer';
 
 class NavigationBar extends React.Component {
   constructor(props){

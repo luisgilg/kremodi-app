@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Avatar, Typography, Box, Grid, Card, CardHeader, CardMedia, CardContent, CardActions, Button } from '@material-ui/core';
+import { Avatar, Box, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, Typography } from '@material-ui/core';
 import { deepOrange } from '@material-ui/core/colors';
 import { Edit } from '@material-ui/icons';
+import React, { Component } from 'react';
 
 
 class ProductCard extends Component {

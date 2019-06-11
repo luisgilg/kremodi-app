@@ -10,7 +10,7 @@ export const AppRoutes = {
 	orders: "/pedidos",
 	openShop: "/open-shop",
 
-	about: "/open-shop",
-	contact: "/open-shop"
+	about: "/about",
+	contact: "/contact"
 
 }

@@ -1,5 +1,5 @@
-import { FETCH_PRODUCTS_TYPES, PUSH_PRODUCT_TYPES, UPDATE_PRODUCT_TYPES } from './types'
 import { productsRef } from './refs';
+import { FETCH_PRODUCTS_TYPES, PUSH_PRODUCT_TYPES, UPDATE_PRODUCT_TYPES } from './types';
 
 
 export const fetchProducts = () => dispatch => {

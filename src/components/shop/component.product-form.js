@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { InputAdornment, Paper, Container, Dialog, DialogContent, Button, AppBar, Toolbar, IconButton, Typography, TextField } from '@material-ui/core';
+import { AppBar, Button, Container, Dialog, DialogContent, IconButton, InputAdornment, Paper, TextField, Toolbar, Typography } from '@material-ui/core';
 import { Close as CloseIcon, Save } from '@material-ui/icons';
+import React, { Component } from 'react';
 
 class ProductFrom extends Component {
 	constructor(props) {

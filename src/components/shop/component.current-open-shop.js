@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Typography, Container, Box, Button, Paper, Grid } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Box, Button, Container, Grid, Paper, Typography } from '@material-ui/core';
 import { deepOrange } from '@material-ui/core/colors';
-import { ShoppingBasket} from '@material-ui/icons';
-
-import {AppRoutes} from '../../app.routes';
+import { ShoppingBasket } from '@material-ui/icons';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { AppRoutes } from '../../app.routes';
 import ProductCard from './component.product-card';
+
 
 class CurrentOpenShop extends Component {
 

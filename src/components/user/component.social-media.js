@@ -1,5 +1,5 @@
+import { Box, Container, Grid, Paper } from '@material-ui/core';
 import React, { Component } from 'react';
-import { Container, Grid, Paper, Box } from '@material-ui/core';
 import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 
 

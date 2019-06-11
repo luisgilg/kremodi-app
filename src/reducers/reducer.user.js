@@ -1,5 +1,5 @@
-import {SET_USER_TYPES, SIGNOUT_TYPES, GOOLE_SIGNIN_TYPES, FETCH_USER_TYPES, FACEBOOK_SIGNIN_TYPES } from '../actions/types';
-import { normalizeUser } from '../utils'
+import { FACEBOOK_SIGNIN_TYPES, FETCH_USER_TYPES, GOOLE_SIGNIN_TYPES, SET_USER_TYPES, SIGNOUT_TYPES } from '../actions/types';
+import { normalizeUser } from '../utils';
 
 
 export default (state = {}, action) => {

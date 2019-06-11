@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import { withSnackbar } from 'notistack';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Snackbar extends Component {

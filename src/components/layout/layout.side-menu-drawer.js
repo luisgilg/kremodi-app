@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Divider, Avatar } from '@material-ui/core';
+import { Avatar, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Mail, ExitToApp, AccountCircle, History, Home, ShoppingBasket, MonetizationOn, CalendarToday, List as ProductList, Info } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
-import {AppRoutes} from '../../app.routes';
-// import {singOut} from '../../api/user.service';
-import { fecthUser, singout } from '../../actions/action.user';
-import { isSignedin, isAdmin } from '../../utils'
+import { AccountCircle, CalendarToday, ExitToApp, History, Home, Info, List as ProductList, Mail, MonetizationOn, ShoppingBasket } from '@material-ui/icons';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { fecthUser, singout } from '../../actions/action.user';
+import { AppRoutes } from '../../app.routes';
+import { isAdmin, isSignedin } from '../../utils';
 
 class SideMenuDrawer extends Component {
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { AppRoutes } from './app.routes';
 
 export const normalizeUser = ({
 	uid, displayName, email, photoURL, phoneNumber, providerId, createdAt, socialMedia, lastLoginAt,
@@ -32,7 +33,7 @@ export function onlyAdmin(WrappedComponent) {
 	return connect(mapStateToProps)(({user})=>{
 		if (!user || !user.isAdmin){
 			return  (
-				<Redirect to="/" />
+				<Redirect to={AppRoutes.landing} />
 			)
 		}
 		return (<WrappedComponent />);
